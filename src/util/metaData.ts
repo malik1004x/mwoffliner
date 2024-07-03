@@ -60,18 +60,9 @@ const schema = {
 const validate = ajv.compile(schema)
 
 export const validateMetadata = (metaData): void => {
-  const valid = validate(metaData)
-
-  if (!valid) {
-    const error = validate.errors[0]
-    const keyword = error.instancePath.substring(1)
-
-    if (error.keyword === 'required') {
-      throw new Error(`Metadata "${error.params.missingProperty}" is required`)
-    }
-    if (error.keyword === 'minLength') {
-      throw new Error(`Metadata "${keyword}" is required`)
-    }
-    throw new Error(`MetaData ${keyword}: ${error.message}`)
-  }
+  // !!!!! METADATA VALIDATION DISABLED !!!!!
+  // this is for my own private wiki. i have confirmed it doesn't cause trouble.
+  // maybe it does on others. don't know, don't care.
+  // don't use this branch, is all. -malik
+  return
 }
